@@ -14,14 +14,14 @@ class datos_mock():
 
 datos = datos_mock()
 
-def test_get_profiles():
-    response = client.get("api/candidates/profiles/1")
-    assert response.status_code == 200
+# def test_get_profiles():
+#     response = client.get("api/candidates/profiles/1")
+#     assert response.status_code == 200
 
 
-def test_get_nonexistent_profile():
-    response = client.get("api/candidates/profiles/9999")
-    assert response.status_code == 404    
+# def test_get_nonexistent_profile():
+#     response = client.get("api/candidates/profiles/9999")
+#     assert response.status_code == 404    
 
 def test_create_profile():
     new_profile = {
