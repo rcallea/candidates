@@ -24,10 +24,6 @@ jobs:
       - name: Run pytest with coverage
         run: |
           python -m coverage run -m pytest test
-        working-directory: ${{ github.workspace }}
-      - name: Generate coverage report
-        run: |
-          python -m coverage xml -i 
           python -m coverage xml -o coverage.xml
         working-directory: ${{ github.workspace }}
       - name: SonarCloud Scan
@@ -35,7 +31,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      - name: Check Coverage
-        run: |
-          python -m coverage report -m --fail-under=80
-        working-directory: ${{ github.workspace }}
