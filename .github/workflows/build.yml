@@ -23,7 +23,7 @@ jobs:
           pip install -r requirements.txt
       - name: Run pytest with coverage
         run: |
-          python -m coverage run -m pytest tests
+          python -m coverage run -m pytest test
         working-directory: ${{ github.workspace }}
       - name: Generate coverage report
         run: |
@@ -37,4 +37,4 @@ jobs:
       - name: Check Coverage
         run: |
           python -m coverage report -m --fail-under=80
-        working-directory: ${{ github.workspace }}        
+        working-directory: ${{ github.workspace }}
