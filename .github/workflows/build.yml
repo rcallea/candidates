@@ -29,5 +29,6 @@ jobs:
       - name: pruebas+coverage
         id: pruebas
         run: | 
-            python -m coverage run -m pytest
-            python -m coverage xml -i 
+            coverage run -m pytest
+            coverage report -m --fail-under=80
+            coverage xml -i 
