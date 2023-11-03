@@ -1,13 +1,13 @@
-from operator import and_
-from fastapi import APIRouter, Depends, status
+# from operator import and_
+# from fastapi import APIRouter, Depends, status
 # from src.models import models
 # from src.schemas.response import ResponseDto
 # from src.schemas.schemas import Employee
-from sqlalchemy.orm import Session
-from src.database import get_db
-from fastapi.encoders import jsonable_encoder
+# from sqlalchemy.orm import Session
+# from src.database import get_db
+# from fastapi.encoders import jsonable_encoder
 
-router = APIRouter()
+# router = APIRouter()
 
 # @router.get("/{company_id}/projects/{project_id}/employees", response_model=ResponseDto, status_code=status.HTTP_200_OK)
 # def get_employees(company_id:int, project_id:int, db: Session = Depends(get_db)):
