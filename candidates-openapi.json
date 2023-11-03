@@ -1,0 +1,1500 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "api-companies",
+        "description": "Microservices candidates",
+        "version": "1.0.0",
+        "x-logo": {
+            "url": "https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png"
+        }
+    },
+    "paths": {
+        "/api/candidates/ping": {
+            "get": {
+                "tags": [
+                    "healthcheck"
+                ],
+                "summary": "Healthcheck",
+                "operationId": "healthcheck_api_candidates_ping_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/candidates/candidate": {
+            "get": {
+                "tags": [
+                    "candidate"
+                ],
+                "summary": "Get Candidates",
+                "operationId": "get_candidates_api_candidates_candidate_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "candidate"
+                ],
+                "summary": "Create Candidate",
+                "operationId": "create_candidate_api_candidates_candidate_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Candidate"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/candidates/candidate/{id}": {
+            "get": {
+                "tags": [
+                    "candidate"
+                ],
+                "summary": "Get Candidate",
+                "operationId": "get_candidate_api_candidates_candidate__id__get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "candidate"
+                ],
+                "summary": "Put Candidate",
+                "operationId": "put_candidate_api_candidates_candidate__id__put",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CandidateUpdate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/candidates/candidate/{id}/skills": {
+            "put": {
+                "tags": [
+                    "candidate"
+                ],
+                "summary": "Put Candidate Skills",
+                "operationId": "put_candidate_skills_api_candidates_candidate__id__skills_put",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SkillsUpdate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/candidates/language": {
+            "get": {
+                "tags": [
+                    "language"
+                ],
+                "summary": "Get Language",
+                "operationId": "get_language_api_candidates_language_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "language"
+                ],
+                "summary": "Create Language",
+                "operationId": "create_language_api_candidates_language_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Language"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/candidates/language/{id}": {
+            "get": {
+                "tags": [
+                    "language"
+                ],
+                "summary": "Get Language",
+                "operationId": "get_language_api_candidates_language__id__get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "language"
+                ],
+                "summary": "Put Language",
+                "operationId": "put_language_api_candidates_language__id__put",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/WorkExperienceUpdate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/candidates/education": {
+            "get": {
+                "tags": [
+                    "education"
+                ],
+                "summary": "Get Educations",
+                "operationId": "get_educations_api_candidates_education_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "education"
+                ],
+                "summary": "Create Education",
+                "operationId": "create_education_api_candidates_education_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Education"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/candidates/education/{id}": {
+            "get": {
+                "tags": [
+                    "education"
+                ],
+                "summary": "Get Educations",
+                "operationId": "get_educations_api_candidates_education__id__get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "education"
+                ],
+                "summary": "Put Educations",
+                "operationId": "put_educations_api_candidates_education__id__put",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EducationUpdate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/candidates/workexperience": {
+            "get": {
+                "tags": [
+                    "workexperience"
+                ],
+                "summary": "Get Workexperiences",
+                "operationId": "get_workexperiences_api_candidates_workexperience_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "workexperience"
+                ],
+                "summary": "Create Workexperiences",
+                "operationId": "create_workexperiences_api_candidates_workexperience_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/WorkExperience"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/candidates/workexperience/{id}": {
+            "get": {
+                "tags": [
+                    "workexperience"
+                ],
+                "summary": "Get Workexperiences",
+                "operationId": "get_workexperiences_api_candidates_workexperience__id__get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "workexperience"
+                ],
+                "summary": "Put Workexperience",
+                "operationId": "put_workexperience_api_candidates_workexperience__id__put",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/WorkExperienceUpdate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/candidates/profile": {
+            "get": {
+                "tags": [
+                    "profile"
+                ],
+                "summary": "Get Profiles",
+                "operationId": "get_profiles_api_candidates_profile_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "profile"
+                ],
+                "summary": "Create Profile",
+                "operationId": "create_profile_api_candidates_profile_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Profile"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/candidates/profile/{id}": {
+            "get": {
+                "tags": [
+                    "profile"
+                ],
+                "summary": "Get Profiles",
+                "operationId": "get_profiles_api_candidates_profile__id__get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "profile"
+                ],
+                "summary": "Put Profiles",
+                "operationId": "put_profiles_api_candidates_profile__id__put",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Profile"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/candidates/enums": {
+            "get": {
+                "tags": [
+                    "enums"
+                ],
+                "summary": "Get Profiles",
+                "operationId": "get_profiles_api_candidates_enums_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDto"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AcademicLevel": {
+                "type": "string",
+                "enum": [
+                    "PREGRADO",
+                    "ESPECIALIZACIÓN",
+                    "MAESTRÍA",
+                    "DOCTORADO",
+                    "DIPLOMADO",
+                    "CURSO",
+                    "CERTIFICACIÓN"
+                ],
+                "title": "AcademicLevel"
+            },
+            "Candidate": {
+                "properties": {
+                    "full_name": {
+                        "type": "string",
+                        "title": "Full Name"
+                    },
+                    "surnames": {
+                        "type": "string",
+                        "title": "Surnames"
+                    },
+                    "age": {
+                        "type": "string",
+                        "title": "Age"
+                    },
+                    "document_type": {
+                        "type": "string",
+                        "title": "Document Type"
+                    },
+                    "document": {
+                        "type": "string",
+                        "title": "Document"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "title": "Phone"
+                    },
+                    "birthdate": {
+                        "type": "string",
+                        "title": "Birthdate"
+                    },
+                    "country": {
+                        "type": "string",
+                        "title": "Country"
+                    },
+                    "city": {
+                        "type": "string",
+                        "title": "City"
+                    },
+                    "email": {
+                        "type": "string",
+                        "title": "Email"
+                    },
+                    "address": {
+                        "type": "string",
+                        "title": "Address"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "full_name",
+                    "surnames",
+                    "age",
+                    "document_type",
+                    "document",
+                    "phone",
+                    "birthdate",
+                    "country",
+                    "city",
+                    "email",
+                    "address"
+                ],
+                "title": "Candidate"
+            },
+            "CandidateUpdate": {
+                "properties": {
+                    "full_name": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Full Name"
+                    },
+                    "surnames": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Surnames"
+                    },
+                    "age": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Age"
+                    },
+                    "document_type": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Document Type"
+                    },
+                    "document": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Document"
+                    },
+                    "phone": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Phone"
+                    },
+                    "birthdate": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Birthdate"
+                    },
+                    "country": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Country"
+                    },
+                    "city": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "City"
+                    },
+                    "email": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Email"
+                    },
+                    "address": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Address"
+                    }
+                },
+                "type": "object",
+                "title": "CandidateUpdate"
+            },
+            "Education": {
+                "properties": {
+                    "start_date": {
+                        "type": "string",
+                        "title": "Start Date"
+                    },
+                    "end_date": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "End Date"
+                    },
+                    "title": {
+                        "type": "string",
+                        "title": "Title"
+                    },
+                    "educational_institution": {
+                        "type": "string",
+                        "title": "Educational Institution"
+                    },
+                    "degree": {
+                        "$ref": "#/components/schemas/AcademicLevel"
+                    },
+                    "state": {
+                        "$ref": "#/components/schemas/StateEducation"
+                    },
+                    "candidate_id": {
+                        "type": "string",
+                        "title": "Candidate Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "start_date",
+                    "title",
+                    "educational_institution",
+                    "degree",
+                    "state",
+                    "candidate_id"
+                ],
+                "title": "Education"
+            },
+            "EducationUpdate": {
+                "properties": {
+                    "start_date": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Start Date"
+                    },
+                    "end_date": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "End Date"
+                    },
+                    "title": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Title"
+                    },
+                    "educational_institution": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Educational Institution"
+                    },
+                    "degree": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Degree"
+                    },
+                    "state": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "State"
+                    },
+                    "candidate_id": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Candidate Id"
+                    }
+                },
+                "type": "object",
+                "title": "EducationUpdate"
+            },
+            "EmploymentType": {
+                "type": "string",
+                "enum": [
+                    "JORNADA COMPLETA",
+                    "JORNADA PARCIAL",
+                    "CONTRATO TEMPORAL",
+                    "PROFESIONAL INDEPENDIENTE",
+                    "CONTRATO DE PRÁCTICAS"
+                ],
+                "title": "EmploymentType"
+            },
+            "HTTPValidationError": {
+                "properties": {
+                    "detail": {
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        },
+                        "type": "array",
+                        "title": "Detail"
+                    }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+            },
+            "Language": {
+                "properties": {},
+                "type": "object",
+                "title": "Language"
+            },
+            "Profile": {
+                "properties": {},
+                "type": "object",
+                "title": "Profile"
+            },
+            "ResponseDto": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "items": {},
+                                "type": "array"
+                            },
+                            {
+                                "type": "object"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ],
+                        "title": "Data"
+                    },
+                    "errors": {
+                        "type": "string",
+                        "title": "Errors"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message",
+                    "data",
+                    "errors"
+                ],
+                "title": "ResponseDto"
+            },
+            "SkillsUpdate": {
+                "properties": {
+                    "soft_skills": {
+                        "anyOf": [
+                            {
+                                "items": {},
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Soft Skills"
+                    },
+                    "technical_skills": {
+                        "anyOf": [
+                            {
+                                "items": {},
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Technical Skills"
+                    },
+                    "personality_traits": {
+                        "anyOf": [
+                            {
+                                "items": {},
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Personality Traits"
+                    }
+                },
+                "type": "object",
+                "title": "SkillsUpdate"
+            },
+            "StateEducation": {
+                "type": "string",
+                "enum": [
+                    "EN CURSO",
+                    "FINALIZADO",
+                    "CANCELADO",
+                    "APLAZADO",
+                    "PENDIENTE GRADO"
+                ],
+                "title": "StateEducation"
+            },
+            "ValidationError": {
+                "properties": {
+                    "loc": {
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "integer"
+                                }
+                            ]
+                        },
+                        "type": "array",
+                        "title": "Location"
+                    },
+                    "msg": {
+                        "type": "string",
+                        "title": "Message"
+                    },
+                    "type": {
+                        "type": "string",
+                        "title": "Error Type"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "title": "ValidationError"
+            },
+            "WorkExperience": {
+                "properties": {
+                    "company": {
+                        "type": "string",
+                        "title": "Company"
+                    },
+                    "job_title": {
+                        "type": "string",
+                        "title": "Job Title"
+                    },
+                    "start_date": {
+                        "type": "string",
+                        "title": "Start Date"
+                    },
+                    "end_date": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "End Date"
+                    },
+                    "functions": {
+                        "type": "string",
+                        "title": "Functions"
+                    },
+                    "job_type": {
+                        "$ref": "#/components/schemas/EmploymentType"
+                    },
+                    "is_actual": {
+                        "type": "boolean",
+                        "title": "Is Actual"
+                    },
+                    "candidate_id": {
+                        "type": "integer",
+                        "title": "Candidate Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "company",
+                    "job_title",
+                    "start_date",
+                    "functions",
+                    "job_type",
+                    "is_actual",
+                    "candidate_id"
+                ],
+                "title": "WorkExperience"
+            },
+            "WorkExperienceUpdate": {
+                "properties": {
+                    "company": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Company"
+                    },
+                    "job_title": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Job Title"
+                    },
+                    "start_date": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Start Date"
+                    },
+                    "end_date": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "End Date"
+                    },
+                    "functions": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Functions"
+                    },
+                    "job_type": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/EmploymentType"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "is_actual": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Is Actual"
+                    },
+                    "candidate_id": {
+                        "type": "integer",
+                        "title": "Candidate Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "candidate_id"
+                ],
+                "title": "WorkExperienceUpdate"
+            }
+        }
+    }
+}

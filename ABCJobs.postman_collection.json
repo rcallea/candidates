@@ -1,0 +1,459 @@
+{
+	"info": {
+		"_postman_id": "61431539-991d-433d-b4ed-eaa5c56f3c36",
+		"name": "ABCJobs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29848123"
+	},
+	"item": [
+		{
+			"name": "Language",
+			"item": [
+				{
+					"name": "Post language",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"language\":\"Ingles\", \r\n    \"language_level\":\"C2\", \r\n    \"candidate_id\":\"1\" \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_API}}/language",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"language"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Language",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_API}}/language/1",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"language",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Candidate",
+			"item": [
+				{
+					"name": "Post Candidate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"full_name\":\"Alonso\", \r\n    \"surnames\":\"Pastrana\", \r\n    \"age\":\"25\", \r\n    \"document_type\":\"CC\", \r\n    \"document\":\"802357604\", \r\n    \"phone\":\"3004238174\", \r\n    \"birthdate\":\"2000/03/01\", \r\n    \"country\":\"Colombia\",\r\n    \"city\":\"Bogota\", \r\n    \"email\":\"nbarreto4@uniandes.edu.co\", \r\n    \"address\":\"Cra 1 e 19 a 40\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_API}}/candidate",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"candidate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Candidate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_API}}/candidate/1",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"candidate",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Candidate",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"full_name\":\"Nelson Alonso\", \r\n    \"surnames\":\"Barreto Pastrana\", \r\n    \"age\":\"10\", \r\n    \"address\":\"Cra 1 e 19 a 40 Centro\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_API}}/candidate/1",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"candidate",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get enums",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_API}}/enums",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"enums"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Educations",
+			"item": [
+				{
+					"name": "Get educations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_API}}/education",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"education"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Educacion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"start_date\":\"2021/03/01\", \r\n    \"end_date\":\"2024/03/25\", \r\n    \"title\":\"Msc\", \r\n    \"educational_institution\":\"Uniandes\", \r\n    \"degree\":\"MASTER\", \r\n    \"state\":\"FINALIZED\", \r\n    \"candidate_id\":\"1\"\r\n}                                    ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_API}}/education",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"education"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Education",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_API}}/education/1",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"education",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Education",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"startdate\":\"2021/03/01\", \r\n    \"enddate\":\"2024/03/25\", \r\n    \"title\":\"Msc\", \r\n    \"educational_institution\":\"Universiad de los Andes\", \r\n    \"degree\":\"MASTER\", \r\n    \"state\":\"FINALIZED\"\r\n}   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_API}}/education/1",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"education",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Workexperience",
+			"item": [
+				{
+					"name": "Get workexperiencie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_API}}/workexperience/1",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"workexperience",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post workexperience",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"company\":\"Uniandes\", \r\n    \"job_title\":\"Ing\", \r\n    \"start_date\":\"2002/01/01\", \r\n    \"end_date\":\"\", \r\n    \"functions\":\"Ing\", \r\n    \"job_type\":\"FULL_TIME\", \r\n    \"is_actual\":\"1\", \r\n    \"candidate_id\": \"1\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_API}}/workexperience",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"workexperience"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get workexperience",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_API}}/workexperience/1",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"workexperience",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put workexperience",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"company\":\"Universidad de los Andes\", \r\n    \"jobtitle\":\"Ing\", \r\n    \"startdate\":\"2002/01/01\", \r\n    \"enddate\":\"2002/01/31\", \r\n    \"functions\":\"Ing\", \r\n    \"jobtype\":\"FULL_TIME\", \r\n    \"isactual\":1 \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_API}}/workexperience/1",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"workexperience",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "Get profiles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_API}}/profile",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Profile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"curriculum\":\"curriculum\", \r\n    \"description\":\"description\", \r\n    \"candidate_id\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_API}}/profile",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_API}}/profile/1",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"profile",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Profile",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"curriculum\":\"curriculum actualizacdo\", \r\n    \"description\":\"description actualizado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_API}}/profile/1",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"profile",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL_API",
+			"value": "http://localhost:8000/api/candidates",
+			"type": "string"
+		}
+	]
+}

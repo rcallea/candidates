@@ -1,0 +1,32 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Configuring AWS CLI credentials and default region
+      - aws configure set aws_access_key_id AKIAWKW36LXIRUL2AHH3
+      - aws configure set aws_secret_access_key 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
+      - aws configure set default.region us-east-1
+  pre_build:
+    commands:
+      - sudo apt-get update -y
+      - curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.28.1/2023-09-14/bin/darwin/amd64/kubectl
+      - chmod +x ./kubectl
+      - mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$HOME/bin:$PATH
+      - echo 'export PATH=$HOME/bin:$PATH' >> ~/.bash_candidates
+      - echo Logging in to Amazon ECR
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 435326705105.dkr.ecr.us-east-1.amazonaws.com
+  build:
+    commands:
+      - echo Applying Kubernetes service definition
+      - aws eks update-kubeconfig --name cluster-microservices --region us-east-1
+      - kubectl apply -f k8s-service.yml
+      - kubectl rollout restart deployment/candidates-pod
+  post_build:
+    commands:
+artifacts:
+  files:
+    - '**/*'
+    - imagedefinitions.json
+    - imageDetail.json
+    - k8s-service.yaml

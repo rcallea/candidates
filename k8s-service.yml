@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: candidates-pod
+  labels:
+    app: candidates
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: candidates
+  template:
+    metadata:
+      labels:
+        app: candidates
+    spec:
+      containers:
+        - name: container-candidates
+          image: 435326705105.dkr.ecr.us-east-1.amazonaws.com/candidates:latest
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8000
+          imagePullPolicy: Always
+          env:
+            - name: URL_DATABASE
+              value: "postgresql://postgres:5mG$1**8abcd@abc-jobs-postgres.cy4wad57lz7h.us-east-1.rds.amazonaws.com:5432/postgres"
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: microservice-candidates
+spec:
+  type: LoadBalancer
+  selector:
+    app: candidates
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000

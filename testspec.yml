@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+  pre_build:
+    commands:
+      - echo "Install dependencies"
+      - pip install -r requirements.txt
+      - echo "Pre-build phase completed"
+  build:
+    commands:
+      - echo "Running pytest with coverage"
+      - coverage run -m pytest
+      - echo "Build phase completed"
+  post_build:
+    commands:
+      - echo "Reporting coverage"
+      - coverage report -m --fail-under=80
+      - echo "Post-build phase completed"
+artifacts:
+  files: '**/*'
+cache:
+  paths:
+    - /root/.cache/pip

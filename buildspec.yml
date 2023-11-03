@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    commands:    
+      - echo Configuring AWS CLI credentials and default region
+      - aws configure set aws_access_key_id AKIAWKW36LXIRUL2AHH3
+      - aws configure set aws_secret_access_key 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
+      - aws configure set default.region us-east-1
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 435326705105.dkr.ecr.us-east-1.amazonaws.com
+  build:
+    commands:
+      - echo Building the Docker image
+      - docker build --no-cache -t candidates:latest -f Dockerfile .
+      - docker tag candidates:latest 435326705105.dkr.ecr.us-east-1.amazonaws.com/candidates:latest
+      - docker push 435326705105.dkr.ecr.us-east-1.amazonaws.com/candidates:latest
+  post_build:
+    commands:
+artifacts:
+  files:
+    - '**/*'
+    - imagedefinitions.json
+    - imageDetail.json
