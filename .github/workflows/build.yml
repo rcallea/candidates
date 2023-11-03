@@ -27,7 +27,7 @@ jobs:
         working-directory: ${{ github.workspace }}
       - name: Generate coverage report
         run: |
-          python -m coverage xml -o coverage.xml
+          python -m coverage xml -i
         working-directory: ${{ github.workspace }}
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
