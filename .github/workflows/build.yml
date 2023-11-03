@@ -29,7 +29,7 @@ jobs:
         run: |
           python -m coverage xml -i 
           python -m coverage xml -o coverage.xml
-        working-directory: ${{ github.workspace }}/coverage
+        working-directory: ${{ github.workspace }}
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
@@ -38,4 +38,4 @@ jobs:
       - name: Check Coverage
         run: |
           python -m coverage report -m --fail-under=80
-        working-directory: ${{ github.workspace }}/coverage
+        working-directory: ${{ github.workspace }}
